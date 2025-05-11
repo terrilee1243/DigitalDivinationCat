@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cat & Quote</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 30px; }
+    img { max-width: 500px; margin-top: 20px; }
+    .quote { font-size: 1.2em; margin-top: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .quote-author { font-style: italic; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Here’s your cat for: <span id="tagLabel"></span></h1>
+  <img id="catImg" src="" alt="Your companion is on its way...">
+  <div class="quote" id="quoteText">Loading quote...</div>
+  <div class="quote-author" id="quoteAuthor"></div>
+  <br>
+  <a href="index.html">I want another cat...</a>
+
+  <script>
+    // Get the tag from the URL
+    function getQueryTag() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("tag");
+    }
+
+    const tag = getQueryTag();
+    document.getElementById("tagLabel").textContent = tag;
+    document.getElementById("catImg").src = `https://cataas.com/cat/${tag}?timestamp=${Date.now()}`;
+
+    // Fetch a motivational quote from API Ninjas
+    fetch('https://api.api-ninjas.com/v1/quotes', {
+      method: 'GET',
+      headers: { 'X-Api-Key': 'COv5ROCdx0bMu1zWqFCX9A==b61uo3vkt8NSQ2NI' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      const quote = data[0];
+      document.getElementById('quoteText').textContent = `"${quote.quote}"`;
+      document.getElementById('quoteAuthor').textContent = `– ${quote.author}`;
+    })
+    .catch(error => {
+      document.getElementById('quoteText').textContent = 'Could not load quote.';
+      console.error('Error fetching quote:', error);
+    });
+  </script>
+</body>
+</html>
