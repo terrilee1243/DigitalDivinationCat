@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Cat & Quote</title>
+  <title>Your Cat Quote</title>
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 30px; }
+    body { font-family: sans-serif; text-align: center; margin-top: 30px; background-color: rgb(28, 28, 44);
+        color: aliceblue;}
     img { max-width: 500px; margin-top: 20px; }
     .quote { font-size: 1.2em; margin-top: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
     .quote-author { font-style: italic; margin-top: 10px; }
+    a {
+      color: aliceblue;
+    }
+    a:hover {
+      color: rgb(180, 160, 195);
+    }
   </style>
 </head>
 <body>
-  <h1>Here’s your cat for: <span id="tagLabel"></span></h1>
+  <h1>I'm also feeling <span id="tagLabel"></span>!</h1>
   <img id="catImg" src="" alt="Your companion is on its way...">
-  <div class="quote" id="quoteText">Loading quote...</div>
+  <div class="quote" id="quoteText">The cat says...</div>
   <div class="quote-author" id="quoteAuthor"></div>
   <br>
   <a href="index.html">I want another cat...</a>
 
   <script>
-    // Get the tag from the URL
+    // tag from URL
     function getQueryTag() {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get("tag");
@@ -29,7 +36,7 @@
     document.getElementById("tagLabel").textContent = tag;
     document.getElementById("catImg").src = `https://cataas.com/cat/${tag}?timestamp=${Date.now()}`;
 
-    // Fetch a motivational quote from API Ninjas
+    // quote from API Ninjas
     fetch('https://api.api-ninjas.com/v1/quotes', {
       method: 'GET',
       headers: { 'X-Api-Key': 'COv5ROCdx0bMu1zWqFCX9A==b61uo3vkt8NSQ2NI' }

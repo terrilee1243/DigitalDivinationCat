@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+  margin: 0;
+
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px;
+  background-color: rgb(28, 28, 44);
+  color: aliceblue;
+}
+input, button {
+  font-size: 1.2em;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: rgb(44, 44, 81);
+  color: rgb(138, 138, 206);
+}
+.hidden {
+  display: none;
+}
+.error {
+  color: rgb(71, 71, 71);
+  margin-top: 10px;
+}
+
+/* New fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}

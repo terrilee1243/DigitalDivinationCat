@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>How Are You Feeling?</title>
-  <!--css-->
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-    input, button { font-size: 1.2em; padding: 10px; }
-    .error { color: rgb(71, 71, 71); margin-top: 10px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
-
-
 <body>
-  <h1>Miss MeowMeow is here to send you your perfect cat companion!</h1>
-  <h2>Now, tell me how you're feeling or what you wish you were doing</h2>
-  <input type="text" id="userInput" placeholder="e.g. happy, drunk">
-  <button onclick="checkTag()">is how I'm feeling!</button>
+    <img src="catimg.jpeg" style="width: 200px; height: auto;">
+  <h1 class="fade-in" id="introText">Miss MeowMeow is here to send you your perfect cat companion!</h1>
+
+  <button id="okayBtn" class="hidden">Okay!</button>
+
+  <h2 id="questionText" class="hidden">Now, tell me how you're feeling or what you wish you were doing</h2>
+  <input type="text" id="userInput" class="hidden" placeholder="e.g. happy, drunk">
+  <button id="submitBtn" class="hidden" onclick="checkTag()">is how I'm feeling!</button>
+
   <div class="error" id="errorMsg"></div>
 
+  <h2 id="quirkyMsg" class="hidden">These cats speak some weird things though!</h2>
 
-  <h2>These cats speak some weird things though!</h2>
   <script src="main.js"></script>
 </body>
 </html>
