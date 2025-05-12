@@ -1,11 +1,11 @@
 let availableTags = [];
 
-// Fetch tags once when page loads
+// tags
 fetch("https://cataas.com/api/tags")
   .then(res => res.json())
   .then(tags => availableTags = tags.map(tag => tag.toLowerCase()));
 
-// Wait for DOM to load
+// DOM loading
 document.addEventListener("DOMContentLoaded", () => {
   const okayBtn = document.getElementById("okayBtn");
   const intro = document.getElementById("introText");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submit = document.getElementById("submitBtn");
   const quirky = document.getElementById("quirkyMsg");
 
-  // Reveal "Okay!" after intro finishes fading in
+  // okay after h1
   intro.addEventListener("animationend", () => {
     okayBtn.classList.remove("hidden");
   });
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   okayBtn.addEventListener("click", () => {
     okayBtn.classList.add("hidden");
 
-    // Show question with fade-in effect
+    // question revael
     question.classList.remove("hidden");
     question.classList.add("fade-in");
 
